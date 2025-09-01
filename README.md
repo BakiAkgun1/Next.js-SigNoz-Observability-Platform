@@ -70,7 +70,17 @@ chmod +x wsl-signoz-setup.sh
 ./wsl-signoz-setup.sh
 ```
 
-### 5. Next.js Uygulamasını Başlat
+### 5. SigNoz Admin Hesabı Oluştur
+```bash
+# SigNoz'a giriş yapmak için admin hesabı oluştur
+# Tarayıcıda http://localhost:8080 açın
+# İlk kurulum sayfasında:
+# - Email: admin@signoz.io
+# - Password: admin
+# - Veya yeni hesap oluşturun
+```
+
+### 6. Next.js Uygulamasını Başlat
 ```bash
 # Next.js uygulamasını başlat
 npm run dev
@@ -204,9 +214,16 @@ sdk.start();
 - Hata oranlarını kontrol edin
 
 ### 3. Metrics
-- Response time'ları izleyin
-- Throughput metriklerini kontrol edin
-- Resource kullanımını analiz edin
+- **Response Time**: API yanıt süreleri (P50, P95, P99)
+- **Throughput**: Saniyede işlenen request sayısı
+- **Error Rate**: Hata oranı yüzdesi
+- **Resource Usage**: CPU, RAM, Disk kullanımı
+
+### 4. ClickHouse Performans Metrikleri
+- **Query Performance**: Sorgu süreleri ve throughput
+- **Memory Usage**: Bellek kullanımı ve limitleri
+- **Disk I/O**: Disk okuma/yazma performansı
+- **Concurrent Connections**: Eşzamanlı bağlantı sayısı
 
 ## 🧪 Test Sonuçları
 
@@ -215,6 +232,13 @@ sdk.start();
 - **File Upload**: 1KB-1MB dosyalar
 - **ClickHouse**: 10,000+ kayıt işleme
 - **Concurrent Requests**: 10+ eşzamanlı istek
+
+### ClickHouse Sıkıntı Durumları
+- **Yüksek Memory Usage**: Bellek %80'i aştığında sorgular yavaşlar
+- **Disk I/O Bottleneck**: Disk dolduğunda insert işlemleri bloklanır
+- **Too Many Connections**: Eşzamanlı bağlantı limiti aşıldığında
+- **Query Timeout**: Karmaşık sorgular timeout'a uğrar
+- **MergeTree Engine**: Büyük tablolarda merge işlemleri yavaşlatır
 
 ### Stres Test Sonuçları
 - **File Upload**: Farklı boyutlarda dosyalar

@@ -79,7 +79,7 @@ export default function Home() {
 
           <div className="mt-8 text-sm text-gray-600">
             <p>Bu uygulama OpenTelemetry ile izlenmektedir.</p>
-            <p>SigNoz UI'da http://localhost:3301 adresinden trace'leri görebilirsiniz.</p>
+            <p>SigNoz UI'da <a href="http://localhost:8080" target="_blank" className="text-blue-500 hover:underline">http://localhost:8080</a> adresinden trace'leri görebilirsiniz.</p>
           </div>
         </div>
       </div>
