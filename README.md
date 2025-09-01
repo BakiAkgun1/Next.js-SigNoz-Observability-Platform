@@ -108,6 +108,7 @@ curl -X POST -F 'file=@test-files/small-1kb.txt' http://localhost:3003/api/uploa
 curl http://localhost:3003/api/download
 ```
 
+
 ### 3. ClickHouse Stres Testi
 ```bash
 # ClickHouse stres testini çalıştır
@@ -118,6 +119,7 @@ chmod +x wsl-clickhouse-test.sh
 chmod +x wsl-clickhouse-stress-test.sh
 ./wsl-clickhouse-stress-test.sh
 ```
+<img width="433" height="222" alt="image" src="https://github.com/user-attachments/assets/2dc28542-630e-4eaf-83a4-242c34e247c1" />
 
 ### 4. Manuel Testler
 ```bash
