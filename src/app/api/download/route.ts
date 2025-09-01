@@ -5,7 +5,7 @@ import { join } from 'path'
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
-    const filename = searchParams.get('file')
+    const filename = searchParams.get('filename') || searchParams.get('file')
     const action = searchParams.get('action') || 'download'
 
     if (action === 'list') {
