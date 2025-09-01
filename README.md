@@ -303,16 +303,29 @@ SelectQuery     2174
 - **Stres Testi**: ✅ **11,000 kayıt** başarıyla işlendi
 - **Performans**: ✅ **100 sorgu** 12 saniyede tamamlandı
 
+#### **Kapsamlı Stres Test Özeti:**
+- **ClickHouse**: 11,000 kayıt (1,000 + 10,000)
+- **API Testleri**: GET /test, GET /users, POST /upload, GET /download
+- **File Upload**: 1KB, 10KB, 100KB, 1MB dosyalar
+- **File Download**: 1KB, 10KB, 100KB dosyalar
+- **Error API Testleri**: 21 error API'si gönderildi (büyük stres!)
+- **Eşzamanlı Sorgular**: 5 eşzamanlı ClickHouse sorgusu
+
 #### **Gerçek Sorunlar:**
 1. **Next.js API Endpoint Sorunu**:
    - `GET /users`: **3.8 saniye** (çok yavaş)
    - **Normal değer**: < 100ms
    - **Sorun**: Uygulama seviyesinde optimizasyon gerekli
 
-2. **SigNoz Metriklerindeki Anormallikler**:
-   - **P99 Latency**: 2+ saniye (01:45 civarı)
-   - **Rate Düşüşü**: 01:50'den sonra sıfıra yakın
-   - **Apdex Skoru**: 0.7-0.8 (düşük kullanıcı memnuniyeti)
+2. **21 Error API'si Etkisi**:
+   - **Büyük stres yarattı**: 21 error API'si sistemi aşırı yükledi
+   - **Next.js yavaşladı**: Uygulama seviyesinde performans düşüşü
+   - **ClickHouse dayandı**: Veritabanı sağlıklı kaldı
+
+3. **SigNoz Metriklerindeki Anormallikler**:
+   - **P99 Latency**: 2+ saniye (01:45 civarı) - 21 error API'si nedeniyle
+   - **Rate Düşüşü**: 01:50'den sonra sıfıra yakın - Sistem aşırı yüklendi
+   - **Apdex Skoru**: 0.7-0.8 (düşük kullanıcı memnuniyeti) - Hatalar etkiledi
 
 #### **Sonuç ve Öneriler:**
 - ✅ **ClickHouse**: Tamamen sağlıklı, sorun yok
@@ -356,6 +369,13 @@ SelectQuery     2174
 
 ### 🎉 **Başarı Hikayesi:**
 Bu dashboard, projenin başarıyla **sorunları çözdüğünü** ve **mükemmel performansa ulaştığını** gösteriyor. OpenTelemetry konfigürasyonu ve Next.js optimizasyonları başarıyla uygulandı!
+
+### 🚨 **21 Error API'si - Gerçek Stres Testi:**
+21 error API'si gönderilmesi, projenin **gerçek stres durumlarını** test etmesini sağladı. Bu test:
+- **Sistemi aşırı yükledi** ve gerçek performans sorunlarını ortaya çıkardı
+- **ClickHouse'un dayanıklılığını** kanıtladı (sağlıklı kaldı)
+- **Next.js uygulamasının zayıf noktalarını** tespit etti
+- **SigNoz'un değerini** gösterdi - gerçek sorunları tespit edebiliyor
 
 ## 🎯 **ClickHouse vs Next.js - Sorun Analizi**
 
