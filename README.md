@@ -1,6 +1,7 @@
 # 🚀 Next.js + SigNoz Observability Platform
 
 Bu proje, **Next.js** uygulaması ile **SigNoz** observability platformunu entegre ederek, uygulama performansını izleme ve analiz etme amacıyla geliştirilmiştir.
+<img width="1911" height="856" alt="image" src="https://github.com/user-attachments/assets/0cd2067c-d1eb-4262-bd40-5d1b20e63a7f" />
 
 ## 📋 Proje Hakkında
 
@@ -117,6 +118,7 @@ curl -X POST -F 'file=@test-files/small-1kb.txt' http://localhost:3003/api/uploa
 curl http://localhost:3003/api/download
 ```
 
+
 ### 3. ClickHouse Stres Testi
 ```bash
 # ClickHouse stres testini çalıştır
@@ -127,6 +129,7 @@ chmod +x wsl-clickhouse-test.sh
 chmod +x wsl-clickhouse-stress-test.sh
 ./wsl-clickhouse-stress-test.sh
 ```
+<img width="433" height="222" alt="image" src="https://github.com/user-attachments/assets/2dc28542-630e-4eaf-83a4-242c34e247c1" />
 
 ### 4. Manuel Testler
 ```bash
@@ -203,6 +206,7 @@ sdk.start();
 ```
 
 ## 📈 SigNoz'da İzleme
+<img width="1919" height="939" alt="image" src="https://github.com/user-attachments/assets/e3c0ba2e-525e-43d2-b2f4-bc27cf95d451" />
 
 ### 1. Services
 - **nextjs-signoz-app** servisini bulun
